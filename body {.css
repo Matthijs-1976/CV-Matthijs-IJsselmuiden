@@ -54,15 +54,39 @@ ul li {
 }
 
 .header-container {
-  display: flex;                  /* tekst en foto naast elkaar */
-  justify-content: space-between; /* links tekst, rechts foto */
-  align-items: center;            /* netjes verticaal uitlijnen */
+  display: flex;
+  justify-content: space-between; /* tekst links, foto rechts */
+  align-items: flex-start;        /* bovenaan uitlijnen */
+  margin-bottom: 20px;            /* witruimte onder header */
+}
+
+.header-text {
+  flex: 1; /* tekst neemt de rest van de ruimte links */
 }
 
 .profile-pic {
-  width: 120px;      /* pas grootte aan naar wens */
+  width: 120px;
   height: auto;
-  border-radius: 50%; /* optioneel: maakt de foto rond */
+  border-radius: 50%; /* optioneel */
+  margin-left: 20px;  /* wat ruimte tussen tekst en foto */
 }
+/* Responsive aanpassing voor kleine schermen */
+@media (max-width: 600px) {
+  .header-container {
+    flex-direction: column;    /* zet tekst en foto onder elkaar */
+    align-items: center;       /* centreer beide in het midden */
+    text-align: center;        /* tekst ook centreren */
+  }
+
+  .profile-pic {
+    margin-left: 0;    /* geen ruimte links nodig */
+    margin-top: 15px;  /* wat ruimte boven de foto */
+  }
+
+  .header-text {
+    flex: none;        /* voorkom dat tekst alle ruimte pakt */
+  }
+}
+
 
 
